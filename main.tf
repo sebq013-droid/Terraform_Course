@@ -14,16 +14,6 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami
 }
 
-<<<<<<< HEAD
-data "aws_vpc" "default" {
-  default = true
-}
-=======
-resource "aws_instance" "blog" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
->>>>>>> fef8e8fb8666bb4a6747e7aa51b4796d5277e0cd
-
 module "blog_vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
