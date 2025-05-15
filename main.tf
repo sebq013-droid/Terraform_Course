@@ -57,7 +57,6 @@ module "alb" {
       target_type      = "instance"
       target_id        = aws_instance.blog.id
     }
-  }
 
   tags = {
     Environment = "Dev"
