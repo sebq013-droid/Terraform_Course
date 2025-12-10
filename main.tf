@@ -55,9 +55,14 @@ module "alb" {
   security_groups = [module.blog_sg.security_group_id]
 
   listeners = {
-    ex-http-https-redirect = {
+    http = {
       port     = 80
       protocol = "HTTP"
+
+      default_action = {
+        type = "forward"
+        target_group_key = "ex-instance"
+      }
     }
   }
 
@@ -66,9 +71,7 @@ module "alb" {
       name_prefix = "blog-"
       protocol    = "HTTP"
       port        = 80
-
       target_type = "instance"
-      target_id   = aws_instance.blog.id
     }
   }
 
