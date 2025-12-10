@@ -58,26 +58,25 @@ module "alb" {
     {
    
       name_prefix = "blog-"
-      backend_protocol    = "HTTP"
-      backend_port        = 80
+      backend_protocol  = "HTTP"
+      backend_port  = 80
 
       my_targets ={
-        target_type = "instance"
-        target_id   = aws_instance.blog.id
+        target_type  = "instance"
+        target_id  = aws_instance.blog.id
         port  = 80
-        }
-
-      
+        }      
     }
   ]
 
-  listeners = [{
-      port     = 80
-      protocol = "HTTP"
-      target_group_index = 0
+  listeners = [
+    {
+      port  = 80
+      protocol  = "HTTP"
+      target_group_index  = 0
     
-  }]
-  
+  }
+] 
 
   tags = {
     Environment = "Dev"    
