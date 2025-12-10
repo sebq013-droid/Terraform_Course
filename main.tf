@@ -34,9 +34,8 @@ module "blog_vpc" {
 }
 
 resource "aws_instance" "blog" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
-
+ ami           = data.aws_ami.app_ami.id
+ instance_type = var.instance_type
  vpc_security_group_ids = [module.blog_sg.security_group_id]
 
  subnet_id = module.blog_vpc.public_subnets[0]
@@ -48,10 +47,9 @@ resource "aws_instance" "blog" {
 module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.3.1"
-  name= "blog_new"
+  name= "blog"
 
-  vpc_id =  module.blog_vpc.vpc_id
-  
+  vpc_id =  module.blog_vpc.vpc_id  
   
   ingress_rules =["http-80-tcp","https-443-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
