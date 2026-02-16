@@ -11,11 +11,7 @@ data "aws_ami" "app_ami" {
     values = ["hvm"]
   }
 
-    filter {
-   name = "describe-instance-types" 
-   values = ["free-tier-eligible=true"]
-}
-  owners = ["979382823631"] # Bitnami
+    owners = ["979382823631"] # Bitnami
 }
 
 resource "aws_instance" "web" {
