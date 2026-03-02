@@ -28,12 +28,12 @@ network_prefix   = "10.0"
   } 
 }
 
-Variable "min_size"{
+variable "min_size"{
   description = "minimum number of instances in the ASG"
   default = 1
 }
 
-Variable "max_size"{
+variable "max_size"{
   description = "minimum number of instances in the ASG"
   default = 2
 }
