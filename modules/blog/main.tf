@@ -87,7 +87,6 @@ resource "aws_lb_target_group" "blog" {
  port     = 80
   protocol = "HTTP"
  vpc_id   = module.blog_vpc.vpc_id
- overwrite = true
 }
 
 module "blog_autoscaling" {
